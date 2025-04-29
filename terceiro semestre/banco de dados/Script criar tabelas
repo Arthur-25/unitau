@@ -1,0 +1,551 @@
+#criar contato
+CREATE TABLE contato (
+                     nome     VARCHAR(50) PRIMARY KEY,
+                     telefone VARCHAR(15),
+                     email    VARCHAR(50)
+                     );
+INSERT INTO contato (nome, telefone, email) VALUES
+('João Silva', '1234-5678', 'joao.silva@email.com'),
+('Maria Souza', '9876-5432', 'maria.souza@email.com'),
+('Pedro Oliveira', '1111-2222', 'pedro.oliveira@email.com');
+
+#criar curso, sala e aluno
+CREATE TABLE curso (
+                   codigo       CHAR(4)  PRIMARY KEY,
+                   nome         CHAR(25) NOT NULL
+                   );
+INSERT INTO curso ( codigo, nome ) VALUES ( '0001', 'Tecnologia da Informacao' );
+INSERT INTO curso ( codigo, nome ) VALUES ( '0002', 'Engenharia da Computacao' );
+INSERT INTO curso ( codigo, nome ) VALUES ( '0003', 'Sistemas de Informacao' );
+
+CREATE TABLE sala  (
+                   curso        CHAR(4)  REFERENCES curso,
+                   serie        CHAR(1),
+                   turma        CHAR(1),
+                   PRIMARY KEY ( curso, serie, turma )
+                   );
+INSERT INTO sala (curso, serie, turma) VALUES
+INSERT INTO sala VALUES ( '0001', '1', 'A');
+INSERT INTO sala VALUES ( '0001', '1', 'B');
+INSERT INTO sala VALUES ( '0001', '2', 'A');
+INSERT INTO sala VALUES ( '0001', '3', 'A');
+INSERT INTO sala VALUES ( '0002', '1', 'A');
+INSERT INTO sala VALUES ( '0002', '2', 'A');
+INSERT INTO sala VALUES ( '0002', '3', 'A');
+
+CREATE TABLE aluno (
+                   matricula    SERIAL   PRIMARY KEY,
+                   nome         CHAR(15) NOT NULL,
+                   rg           CHAR(8)  NOT NULL UNIQUE,
+                   curso        CHAR(4)  REFERENCES curso,
+                   serie        CHAR(1),
+                   turma        CHAR(1),
+                   FOREIGN KEY ( curso, serie, turma ) REFERENCES sala ( curso, serie, turma )
+                   );
+INSERT INTO aluno ( nome, rg, curso, serie, turma ) VALUES ( 'Ana Lucia'   , '20143531', '0001', '1', 'A' );
+INSERT INTO aluno ( nome, rg, curso, serie, turma ) VALUES ( 'Luis Claudio', '22336362', '0001', '1', 'A' );
+INSERT INTO aluno ( nome, rg, curso, serie, turma ) VALUES ( 'Marcelo'     , '25343256', '0001', '1', 'A' );
+INSERT INTO aluno ( nome, rg, curso, serie, turma ) VALUES ( 'Debora'      , '20356328', '0001', '1', 'B' );
+INSERT INTO aluno ( nome, rg, curso, serie, turma ) VALUES ( 'Fernanda'    , '26344325', '0001', '1', 'B' );
+INSERT INTO aluno ( nome, rg, curso, serie, turma ) VALUES ( 'Alvaro'      , '21764527', '0001', '1', 'B' );
+INSERT INTO aluno ( nome, rg, curso, serie, turma ) VALUES ( 'Claudio'     , '23336368', '0002', '1', 'A' );
+INSERT INTO aluno ( nome, rg, curso, serie, turma ) VALUES ( 'Andrea'      , '28456474', '0002', '1', 'A' );
+INSERT INTO aluno ( nome, rg, curso, serie, turma ) VALUES ( 'Carla'       , '23636731', '0002', '2', 'A' );
+INSERT INTO aluno ( nome, rg, curso, serie, turma ) VALUES ( 'Fernanda'    , '29563735', NULL, NULL, NULL );
+
+#criar diretoria, secao, funcao, funcionario
+CREATE TABLE diretoria (
+                       codigo       CHAR(3)  PRIMARY KEY,
+                       descricao    CHAR(10) NOT NULL
+                       );
+INSERT INTO diretoria ( codigo, descricao ) VALUES ( 'PES', 'Pessoal   ' );
+INSERT INTO diretoria ( codigo, descricao ) VALUES ( 'FIN', 'Financeira' );
+INSERT INTO diretoria ( codigo, descricao ) VALUES ( 'PRD', 'Producao  ' );
+INSERT INTO diretoria ( codigo, descricao ) VALUES ( 'MKT', 'Marketing ' );
+
+CREATE TABLE funcao (
+                    funcao    SERIAL   PRIMARY KEY,
+                    descricao CHAR(10) NOT NULL
+                    );
+INSERT INTO funcao ( descricao ) VALUES ( 'Supervisor' );
+INSERT INTO funcao ( descricao ) VALUES ( 'Auxiliar  ' );
+INSERT INTO funcao ( descricao ) VALUES ( 'Tecnico I ' );
+INSERT INTO funcao ( descricao ) VALUES ( 'Tecnico II' );
+INSERT INTO funcao ( descricao ) VALUES ( 'Trainee   ' );
+
+CREATE TABLE secao (
+                   codigo    CHAR(3)  PRIMARY KEY,
+                   descricao CHAR(10) NOT NULL,
+                   diretoria CHAR(3)  NOT NULL REFERENCES diretoria
+                   );
+INSERT INTO secao ( codigo, descricao, diretoria ) VALUES ( 'ADM', 'Admissao  ', 'PES' );
+INSERT INTO secao ( codigo, descricao, diretoria ) VALUES ( 'FPG', 'Folha Pgto', 'PES' );
+INSERT INTO secao ( codigo, descricao, diretoria ) VALUES ( 'CPG', 'Ct a Pagar', 'FIN' );
+INSERT INTO secao ( codigo, descricao, diretoria ) VALUES ( 'CRC', 'Ct Receber', 'FIN' );
+INSERT INTO secao ( codigo, descricao, diretoria ) VALUES ( 'MAN', 'Manufatura', 'PRD' );
+INSERT INTO secao ( codigo, descricao, diretoria ) VALUES ( 'QLD', 'Qualidade ', 'PRD' );
+
+CREATE TABLE funcionario (
+                         matricula  CHAR(5)       PRIMARY KEY,
+                         nome       CHAR(15)      NOT NULL,
+                         nascimento DATE,
+                         salario    NUMERIC(7,2),
+                         funcao     INTEGER       REFERENCES funcao,
+                         secao      CHAR(3)       REFERENCES secao
+                         );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '12342', 'Claudia', '1971/04/21', '4500.00', '1', 'ADM' );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '45739', 'Andre'  , '1983/08/03', '1200.00', '2', 'CPG' );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '34840', 'Marta'  , '1979/11/15', '2100.00', '3', 'ADM' );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '38283', 'Sandro' , '1974/10/09', '3800.00', '1', 'CRC' );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '26360', 'Luis'   , '1976/08/12', '3400.00', '4', 'MAN' );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '15730', 'Ana'    , '1973/12/04', '3000.00', '4', 'FPG' );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '46373', 'Sandra' , '1983/09/14', '1400.00', '2', NULL );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '36392', 'Marcos' , '1971/04/21', '2900.00', '4', 'CRC' );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '29847', 'Luana'  , '1972/03/26', '3800.00', '1', 'FPG' );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '19463', 'Pedro'  , '1984/10/05', '1200.00', '2', 'ADM' );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '28912', 'Nanci'  , '1972/01/29', '4600.00', '1', 'MAN' );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '30472', 'Paula'  , '1976/08/20', '3500.00', '4', 'MAN' );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '40528', 'Fabio'  , '1973/03/15', '2400.00', '3', 'MAN' );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '22189', 'Andreia', '1982/07/21', '1300.00', '2', 'FPG' );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '30352', 'Raquel' , '1974/04/30', '2200.00', '3', 'CPG' );
+INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
+                 VALUES ( '48026', 'Luis'   , '1984-05-18', '1300.00', '2', 'CPG' );
+                 
+#criar produto, saida e entrada
+CREATE TABLE produto (
+                     codigo     CHAR(2)  PRIMARY KEY,
+                     descricao  CHAR(10) NOT NULL
+                     );
+INSERT INTO produto (codigo, descricao) VALUES
+INSERT INTO produto ( codigo, descricao ) VALUES ( '01', 'Caneta' );
+INSERT INTO produto ( codigo, descricao ) VALUES ( '02', 'Lapis' );
+INSERT INTO produto ( codigo, descricao ) VALUES ( '03', 'Compasso' );
+INSERT INTO produto ( codigo, descricao ) VALUES ( '04', 'Borracha' );
+INSERT INTO produto ( codigo, descricao ) VALUES ( '05', 'Regua' );
+INSERT INTO produto ( codigo, descricao ) VALUES ( '06', 'Caderno' );
+
+CREATE TABLE entrada (
+                     codigo      INTEGER  PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+                     data        DATE     NOT NULL,
+                     produto     CHAR(2)  NOT NULL REFERENCES produto,
+                     quantidade  INTEGER
+                     );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/01', '01', '15' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/01', '01',  '5' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/03', '01',  '5' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/20', '01',  '6' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/20', '01',  '4' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/02', '02', '15' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/08', '02',  '4' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/12', '02',  '8' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/15', '02',  '7' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/01', '04', '15' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/01', '04',  '5' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/01', '04',  '5' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/05', '04', '10' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/25', '04',  '5' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/06', '05', '15' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/08', '05', '10' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/01', '06', '30' );
+INSERT INTO entrada ( data, produto, quantidade ) VALUES ( '2010/03/01', '06', '10' );
+
+CREATE TABLE saida (
+                   codigo      INTEGER  PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY,
+                   data        DATE     NOT NULL,
+                   produto     CHAR(2)  NOT NULL REFERENCES produto,
+                   quantidade  INTEGER
+                   );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/03', '01', '3' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/05', '01', '4' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/10', '01', '2' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/14', '01', '1' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/20', '01', '2' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/25', '01', '3' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/25', '01', '3' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/03', '02', '1' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/08', '02', '4' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/12', '02', '8' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/23', '02', '3' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/28', '02', '1' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/02', '04', '8' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/05', '04', '1' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/25', '04', '8' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/25', '04', '4' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/29', '04', '5' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/03', '06', '6' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/07', '06', '3' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/12', '06', '5' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/17', '06', '3' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/17', '06', '2' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/25', '06', '4' );
+INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/28', '06', '2' );
+
+#criar fabricante, automovel, cliente, revenda, venda
+CREATE TABLE fabricante (
+                        codigo   CHAR(2)  PRIMARY KEY,
+                        nome     CHAR(10) NOT NULL
+                        );
+INSERT INTO fabricante ( codigo, nome ) VALUES ( '01', 'Volkswagen' );
+INSERT INTO fabricante ( codigo, nome ) VALUES ( '02', 'Peugeot' );
+INSERT INTO fabricante ( codigo, nome ) VALUES ( '03', 'Chevrolet' );
+INSERT INTO fabricante ( codigo, nome ) VALUES ( '04', 'Ford' );
+INSERT INTO fabricante ( codigo, nome ) VALUES ( '05', 'Fiat' );
+
+CREATE TABLE automovel (
+                       codigo     CHAR(2)       PRIMARY KEY,
+                       fabricante CHAR(2)       NOT NULL REFERENCES fabricante,
+                       modelo     CHAR(15)      NOT NULL,
+                       cor        CHAR(10),
+                       ano        CHAR(4)       NOT NULL,
+                       pais       CHAR(9)       NOT NULL,
+                       compra     DATE          NOT NULL,
+                       preco      NUMERIC(7,2)
+                       );
+INSERT INTO automovel ( codigo, fabricante, modelo, cor, ano, pais, compra, preco ) VALUES ('01','01','Gol'        ,'azul'      ,'2000','Brasil'   ,'2009/12/20','25000');
+INSERT INTO automovel ( codigo, fabricante, modelo, cor, ano, pais, compra, preco ) VALUES ('02','01','Golf'       ,'verde'     ,'2007','Argentina','2010/02/15','39000');
+INSERT INTO automovel ( codigo, fabricante, modelo, cor, ano, pais, compra, preco ) VALUES ('03','04','Ford Ka'    ,'vermelho'  ,'1998','Brasil'   ,'2010/01/03','15000');
+INSERT INTO automovel ( codigo, fabricante, modelo, cor, ano, pais, compra, preco ) VALUES ('04','04','Fiesta'     ,'vermelho'  ,'2002','Mexico'   ,'2010/02/21','20000');
+INSERT INTO automovel ( codigo, fabricante, modelo, cor, ano, pais, compra, preco ) VALUES ('05','03','Corsa Sedan','verde'     ,'1999','Brasil'   ,'2010/01/04','12500');
+INSERT INTO automovel ( codigo, fabricante, modelo, cor, ano, pais, compra, preco ) VALUES ('06','04','Fiesta'     ,'azul'      ,'2003','Argentina','2009/12/14','20000');
+INSERT INTO automovel ( codigo, fabricante, modelo, cor, ano, pais, compra, preco ) VALUES ('07','03','Corsa Sedan','preto'     ,'1999','Argentina','2010/01/08','10000');
+INSERT INTO automovel ( codigo, fabricante, modelo, cor, ano, pais, compra, preco ) VALUES ('08','05','Palio'      ,'preto'     ,'2002','Brasil'   ,'2010/03/01','15000');
+INSERT INTO automovel ( codigo, fabricante, modelo, cor, ano, pais, compra, preco ) VALUES ('09','01','Golf'       ,'amarelo'   ,'2005','Mexico'   ,'2010/01/13','37000');
+INSERT INTO automovel ( codigo, fabricante, modelo, cor, ano, pais, compra, preco ) VALUES ('10','05','Siena'      ,'branco'    ,'2006','Brasil'   ,'2010/02/10','26000');
+INSERT INTO automovel ( codigo, fabricante, modelo, cor, ano, pais, compra, preco ) VALUES ('11','01','Polo'       ,'azul'      ,'2007','Brasil'   ,'2010/02/03','29000');
+INSERT INTO automovel ( codigo, fabricante, modelo, cor, ano, pais, compra, preco ) VALUES ('12','04','Fiesta'     ,'branco'    ,'2002','Argentina','2010/02/26','18000');
+INSERT INTO automovel ( codigo, fabricante, modelo, cor, ano, pais, compra, preco ) VALUES ('13','05','Palio'      ,'verde'     ,'2007','Brasil'   ,'2010/03/04','23000');
+INSERT INTO automovel ( codigo, fabricante, modelo, cor, ano, pais, compra, preco ) VALUES ('14','03','Corsa Sedan','preto'     ,'2002','Argentina','2010/01/20','16000');
+INSERT INTO automovel ( codigo, fabricante, modelo, cor, ano, pais, compra, preco ) VALUES ('15','01','Polo'       ,'vermelho'  ,'2006','Mexico'   ,'2010/01/03','27500');
+
+CREATE TABLE cliente (
+
+                     codigo       CHAR(2)  PRIMARY KEY,
+
+                     nome         CHAR(10) NOT NULL,
+
+                     sobrenome    CHAR(10) NOT NULL
+
+                     );
+INSERT INTO cliente ( codigo, nome, sobrenome ) VALUES ('01','Jose'  ,'Santos'  );
+INSERT INTO cliente ( codigo, nome, sobrenome ) VALUES ('02','Paulo' ,'Cunha'   );
+INSERT INTO cliente ( codigo, nome, sobrenome ) VALUES ('03','Maria' ,'Alves'   );
+INSERT INTO cliente ( codigo, nome, sobrenome ) VALUES ('04','Joana' ,'Silveira');
+INSERT INTO cliente ( codigo, nome, sobrenome ) VALUES ('05','Luis'  ,'Batista' );
+INSERT INTO cliente ( codigo, nome, sobrenome ) VALUES ('06','Marcia','Ramalho' );
+
+CREATE TABLE revenda (
+
+                     codigo       CHAR(2)  PRIMARY KEY,
+
+                     nome         CHAR(15) NOT NULL,
+
+                     cidade       CHAR(10),
+
+                     estado       CHAR(2)
+
+                     );
+INSERT INTO revenda ( codigo, nome, cidade, estado ) VALUES ( '01','Paraiso'  ,'Sao Paulo','SP');
+INSERT INTO revenda ( codigo, nome, cidade, estado ) VALUES ( '02','Alameda'  ,'Taubate'  ,'SP');
+INSERT INTO revenda ( codigo, nome, cidade, estado ) VALUES ( '03','Vale'     ,'Cacapava' ,'SP');
+INSERT INTO revenda ( codigo, nome, cidade, estado ) VALUES ( '04','Cabana'   ,'Macae'    ,'RJ');
+INSERT INTO revenda ( codigo, nome, cidade, estado ) VALUES ( '05','Portal'   ,'Resende'  ,'RJ');
+INSERT INTO revenda ( codigo, nome, cidade, estado ) VALUES ( '06','Santana'  ,'Betim'    ,'MG');
+INSERT INTO revenda ( codigo, nome, cidade, estado ) VALUES ( '07','Triangulo','Contagem' ,'MG');
+
+
+CREATE TABLE venda (
+
+                   cliente      CHAR(2)       REFERENCES cliente,
+
+                   revenda      CHAR(2)       REFERENCES revenda,
+
+                   automovel    CHAR(2)       REFERENCES automovel,
+
+                   data         DATE          NOT NULL,
+
+                   valor        NUMERIC(7,2),
+
+                   PRIMARY KEY ( cliente, revenda,automovel)
+
+                   );
+INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('02','01','03','2010/02/05','17500');
+INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('04','02','01','2010/01/07','28000');
+INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('01','04','10','2010/02/15','28000');
+INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('02','04','02','2010/03/12','42000');
+INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('03','06','07','2010/02/06','11500');
+INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('06','07','15','2010/01/10','29500');
+INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('03','02','06','2010/01/25','22100');
+INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('01','01','05','2010/01/21','15500');
+INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('01','06','13','2010/03/10','24500');
+INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('06','03','09','2010/03/02','39500');
+INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('04','01','11','2010/02/23','31000');
+INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('02','01','14','2010/02/19','17500');
+INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('01','05','04','2010/03/11','21500');
+
+#criar banco, conta, grupotipo, grupo, lancamento
+
+CREATE TABLE banco (
+
+                   codigo       CHAR(3)  PRIMARY KEY,
+
+                   nome         CHAR(10) NOT NULL
+
+                   );
+INSERT INTO banco ( codigo, nome ) VALUES ( '184', 'Itau      ' );
+INSERT INTO banco ( codigo, nome ) VALUES ( '033', 'Santander ' );
+INSERT INTO banco ( codigo, nome ) VALUES ( '237', 'Bradesco  ' );
+
+CREATE TABLE conta (
+
+                   codigo       CHAR(2)  PRIMARY KEY,
+
+                   banco        CHAR(3)  REFERENCES banco,
+
+                   agencia      CHAR(4),
+
+                   numero       CHAR(5),
+
+                   descricao    CHAR(10) NOT NULL
+
+                   );
+INSERT INTO conta ( codigo, banco, agencia, numero, descricao ) VALUES ( '01', NULL,  NULL,   NULL,    'Caixa    ' );
+INSERT INTO conta ( codigo, banco, agencia, numero, descricao ) VALUES ( '02', '033', '0056', '01121', 'CCorrente' );
+INSERT INTO conta ( codigo, banco, agencia, numero, descricao ) VALUES ( '03', '033', '0056', '02121', 'Poupanca ' );
+INSERT INTO conta ( codigo, banco, agencia, numero, descricao ) VALUES ( '04', '237', '1032', '01436', 'CCorrente' );
+
+CREATE TABLE grupotipo (
+
+                       codigo     CHAR(1)  PRIMARY KEY,
+
+                       descricao  CHAR(10) NOT NULL
+
+                       );
+INSERT INTO grupotipo ( codigo, descricao ) VALUES ( 'R', 'Receita  ' );
+INSERT INTO grupotipo ( codigo, descricao ) VALUES ( 'D', 'Despesa  ' );
+INSERT INTO grupotipo ( codigo, descricao ) VALUES ( 'M', 'Movimento' );
+
+CREATE TABLE grupo (
+
+                   codigo       CHAR(2)  PRIMARY KEY,
+
+                   descricao    CHAR(15) NOT NULL,
+
+                   tipo         CHAR(1)  NOT NULL REFERENCES grupotipo
+
+                   );
+INSERT INTO grupo ( codigo, descricao, tipo ) VALUES ( '01', 'Salario        ', 'R' );
+INSERT INTO grupo ( codigo, descricao, tipo ) VALUES ( '02', 'Tarifas        ', 'D' );
+INSERT INTO grupo ( codigo, descricao, tipo ) VALUES ( '03', 'Rendimento     ', 'R' );
+INSERT INTO grupo ( codigo, descricao, tipo ) VALUES ( '04', 'Transferencia  ', 'M' );
+INSERT INTO grupo ( codigo, descricao, tipo ) VALUES ( '05', 'Aluguel        ', 'D' );
+INSERT INTO grupo ( codigo, descricao, tipo ) VALUES ( '06', 'Condominio     ', 'D' );
+INSERT INTO grupo ( codigo, descricao, tipo ) VALUES ( '07', 'Cartao         ', 'D' );
+
+CREATE TABLE lancamento (
+
+                        codigo       SERIAL   PRIMARY KEY,
+
+                        conta        CHAR(2)  NOT NULL REFERENCES conta,
+
+                        grupo        CHAR(2)  NOT NULL REFERENCES grupo,
+
+                        data         DATE     NOT NULL,
+
+                        valor        NUMERIC(6,2)
+
+                        );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '01', '01', '2012/01/01',   120.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '01', '2012/01/01',  1100.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '04', '01', '2012/01/01',   400.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '04', '2012/01/03',  -500.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '03', '04', '2012/01/03',   500.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '01', '2012/01/05',  2000.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '04', '2012/01/10',  -400.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '03', '04', '2012/01/10',   400.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '04', '2012/01/20',  -900.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '04', '04', '2012/01/20',   900.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '04', '07', '2012/01/20', -1000.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '04', '06', '2012/01/26',  -100.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '04', '2012/01/30',  -500.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '01', '04', '2012/01/30',   500.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '01', '05', '2012/01/30',  -600.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '03', '03', '2012/02/03',     5.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '01', '2012/02/05',  2000.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '04', '2012/02/10',  -800.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '03', '04', '2012/02/10',   800.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '04', '2012/02/20', -1100.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '04', '04', '2012/02/20',  1100.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '04', '07', '2012/02/20', -1200.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '04', '2012/02/20',  -700.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '01', '04', '2012/02/20',   700.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '04', '06', '2012/02/26',  -100.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '01', '05', '2012/02/28',  -600.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '03', '03', '2012/03/03',     5.50 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '01', '2012/03/05',  2000.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '04', '2012/03/10',  -600.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '03', '04', '2012/03/10',   600.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '03', '04', '2012/03/25',  -900.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '04', '2012/03/25',   900.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '04', '2012/03/20', -1600.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '04', '04', '2012/03/20',  1600.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '04', '07', '2012/03/20', -1500.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '04', '2012/03/27',  -700.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '01', '04', '2012/03/27',   700.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '01', '06', '2012/03/27',  -110.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '01', '05', '2012/03/30',  -600.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '03', '03', '2012/04/03',     6.20 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '01', '2012/04/05',  2200.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '04', '2012/04/10',  -300.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '03', '04', '2012/04/10',   300.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '04', '2012/04/20', -1300.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '04', '04', '2012/04/20',  1300.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '04', '07', '2012/04/20', -1200.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '04', '06', '2012/04/26',  -120.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '02', '04', '2012/04/27',  -750.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '01', '04', '2012/04/27',   750.00 );
+INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '01', '05', '2012/04/30',  -700.00 );
+
+
+#criar organizacao
+
+CREATE TABLE organizacao (
+
+                         nome       CHAR(15) PRIMARY KEY,
+
+                         vendas     NUMERIC(9,2),
+
+                         superior   CHAR(15) REFERENCES organizacao
+
+                         );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Claudia',  '7500.00', NULL );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Andre'  ,  '8300.00', 'Claudia' );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Marta'  ,  '7800.00', 'Andre' );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Sandro' ,  '8100.00', 'Andre' );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Luis'   ,  '7200.00', 'Sandro' );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Marcos' ,  '8100.00', 'Sandro' );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Luana'  ,  '5200.00', 'Andre' );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Pedro'  ,  '9200.00', 'Claudia' );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Nanci'  ,  '8300.00', 'Claudia' );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Paula'  ,  '6900.00', 'Nanci' );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Andreia',  '8100.00', NULL );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Fabio'  ,  '7800.00', 'Andreia' );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Raquel' ,  '7100.00', 'Fabio' );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Sandra' ,  '8400.00', 'Andreia' );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Ana'    ,  '6800.00', 'Sandra' );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Silvia' ,  '8900.00', 'Sandra' );
+INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Rodrigo',  '8900.00', NULL );
+
+#criar fase, plataforma, projeto, participante
+
+CREATE TABLE fase (
+
+                  codigo     CHAR(1)  PRIMARY KEY,
+
+                  descricao  CHAR(15) NOT NULL
+
+                  );
+INSERT INTO fase ( codigo, descricao ) VALUES ( '1', 'Analise'     );
+INSERT INTO fase ( codigo, descricao ) VALUES ( '2', 'Design'      );
+INSERT INTO fase ( codigo, descricao ) VALUES ( '3', 'Programacao' );
+INSERT INTO fase ( codigo, descricao ) VALUES ( '4', 'Teste'       );
+
+CREATE TABLE plataforma (
+
+                        codigo     CHAR(1)  PRIMARY KEY,
+
+                        descricao  CHAR(10) NOT NULL
+
+                        );
+INSERT INTO plataforma ( codigo, descricao ) VALUES ( '1', 'Android' );
+INSERT INTO plataforma ( codigo, descricao ) VALUES ( '2', 'iOS'     );
+INSERT INTO plataforma ( codigo, descricao ) VALUES ( '3', 'Windows' );
+
+CREATE TABLE projeto (
+
+                     codigo             CHAR(2)  PRIMARY KEY,
+
+                     descricao          CHAR(25) NOT NULL,
+
+                     supervisor         CHAR(10),
+
+                     horas_supervisao   INTEGER,
+
+                     custo_hora         NUMERIC(5,2)
+
+                     );
+INSERT INTO projeto ( codigo, descricao, supervisor, horas_supervisao, custo_hora ) VALUES ( '01', 'Organizador Financeiro', 'Luis' , '26', '200.00' );
+INSERT INTO projeto ( codigo, descricao, supervisor, horas_supervisao, custo_hora ) VALUES ( '02', 'Editor de Fotos'       , 'Pedro', '18', '190.00' );
+INSERT INTO projeto ( codigo, descricao, supervisor, horas_supervisao, custo_hora ) VALUES ( '03', 'Agenda Pessoal'        , 'Ana'  , '16', '190.00' );
+INSERT INTO projeto ( codigo, descricao, supervisor, horas_supervisao, custo_hora ) VALUES ( '04', 'Organizacao de Eventos', 'Ana'  , '14', '180.00' );
+INSERT INTO projeto ( codigo, descricao, supervisor, horas_supervisao, custo_hora ) VALUES ( '05', 'Catalogo de Colecoes'  , 'Pedro', '12', '150.00' );
+
+CREATE TABLE participante (
+
+                          projeto        CHAR(2)  REFERENCES projeto,
+
+                          participante   CHAR(10),
+
+                          fase           CHAR(1)  NOT NULL REFERENCES fase,
+
+                          plataforma     CHAR(1)  REFERENCES plataforma,
+
+                          inicio         DATE,
+
+                          final          DATE,
+
+                          horas          INTEGER,
+
+                          custo_hora     NUMERIC(5,2),
+
+                          PRIMARY KEY ( projeto, participante)
+
+                          );
+INSERT INTO participante VALUES ('01','Marcos  ','1',NULL,'2015/01/06','2015/04/10','12','140.00');
+INSERT INTO participante VALUES ('01','Sandra  ','1',NULL,'2015/01/06','2015/05/03','16','140.00');
+INSERT INTO participante VALUES ('01','Paula   ','2',NULL,'2015/01/11','2015/01/20','08',' 80.00');
+INSERT INTO participante VALUES ('01','Silvia  ','3','1', '2015/01/18','2015/06/21','37','110.00');
+INSERT INTO participante VALUES ('01','Barbara ','3','1', '2015/01/23','2015/05/29','34','100.00');
+INSERT INTO participante VALUES ('01','Cristian','3','2', '2015/01/18','2015/05/30','36',' 95.00');
+INSERT INTO participante VALUES ('01','Andre   ','3','2', '2015/01/21','2015/06/22','37','100.00');
+INSERT INTO participante VALUES ('01','Natalia ','4','1', '2015/03/02','2015/06/24','26',' 80.00');
+INSERT INTO participante VALUES ('01','Flavio  ','4','2', '2015/03/10','2015/06/26','21',' 80.00');
+INSERT INTO participante VALUES ('02','Eduardo ','1',NULL,'2015/02/01','2015/05/21','14','110.00');
+INSERT INTO participante VALUES ('02','Marcos  ','1',NULL,'2015/02/01','2015/05/30','10','120.00');
+INSERT INTO participante VALUES ('02','Paula   ','2',NULL,'2015/02/08','2015/02/15','05',' 70.00');
+INSERT INTO participante VALUES ('02','Silvia  ','3','1', '2015/02/08','2015/07/11','58','100.00');
+INSERT INTO participante VALUES ('02','Andre   ','3','2', '2015/02/04','2015/07/13','61',' 90.00');
+INSERT INTO participante VALUES ('02','Natalia ','4','1', '2015/04/08','2015/07/19','23',' 65.00');
+INSERT INTO participante VALUES ('02','Flavio  ','4','2', '2015/04/05','2015/07/18','27',' 60.00');
+INSERT INTO participante VALUES ('03','Lais    ','1',NULL,'2015/03/05','2015/06/30','15','120.00');
+INSERT INTO participante VALUES ('03','Claudio ','2',NULL,'2015/03/11','2015/03/28','07',' 70.00');
+INSERT INTO participante VALUES ('03','Barbara ','3','1', '2015/03/18','2015/08/04','30',' 90.00');
+INSERT INTO participante VALUES ('03','Gabriela','3','1', '2015/05/02','2015/08/21','33',' 90.00');
+INSERT INTO participante VALUES ('03','Natalia ','4','1', '2015/05/29','2015/08/23','34',' 69.00');
+INSERT INTO participante VALUES ('04','Sandra  ','1',NULL,'2015/07/01','2015/09/25','08','130.00');
+INSERT INTO participante VALUES ('04','Marcos  ','1',NULL,'2015/07/01','2015/10/05','09','130.00');
+INSERT INTO participante VALUES ('04','Paula   ','2',NULL,'2015/07/14','2015/07/22','05',' 60.00');
+INSERT INTO participante VALUES ('04','Gabriela','3','1', '2015/07/12','2015/10/27','27',' 95.00');
+INSERT INTO participante VALUES ('04','Silvia  ','3','1', '2015/08/05','2015/11/11','20',' 95.00');
+INSERT INTO participante VALUES ('04','Cristian','3','2', '2015/07/10','2015/11/11','45',' 80.00');
+INSERT INTO participante VALUES ('04','Natalia ','4','1', '2015/08/28','2015/11/16','16',' 65.00');
+INSERT INTO participante VALUES ('04','Flavio  ','4','2', '2015/08/29','2015/11/18','18',' 60.00');
+INSERT INTO participante VALUES ('05','Lais    ','1',NULL,'2015/09/03','2015/11/16','11','130.00');
+INSERT INTO participante VALUES ('05','Claudio ','2',NULL,'2015/09/20','2015/09/26','05',' 65.00');
+INSERT INTO participante VALUES ('05','Andre   ','3','2', '2015/09/20','2015/11/29','18',' 80.00');
+INSERT INTO participante VALUES ('05','Silvia  ','3','2', '2015/10/01','2015/12/12','26',' 90.00');
+INSERT INTO participante VALUES ('05','Flavio  ','4','2', '2015/11/02','2015/12/15','18',' 55.00');
