@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aula 2 JavaScript</title>
+</head>
+<body >
+ <script type="text/javascript">
+ //<![CDATA[
+    var custo, preco, lucro, resposta,lucroMenor10, lucroEntre1030, lucroMaior30, nome;
+    resposta = true;
+    lucroMenor10 = 0;
+    lucroEntre1030 = 0;
+    lucroMaior30 = 0;
+    while (resposta == true){
+        nome = prompt("Qual o nome do produto");
+        custo = parseFloat(prompt("Qual o preço de compra do produto?"));
+        preco = parseFloat(prompt("Qual o preço de venda do produto?"));
+        lucro = preco - custo;
+        if (lucro < preco*0.1){
+            lucroMenor10++;
+        }
+        if (lucro > preco*0.3){
+            lucroMaior30++;
+        }
+        if (lucro >= preco*0.1 && lucro <= preco*0.3){
+            lucroEntre1030++;
+        }
+        
+        resposta = confirm("Deseja continuar cadastrando?");
+    }
+    document.writeln("<br> Saiu do loop");
+    document.writeln("<br> Quantidade menor que 10% ", lucroMenor10);
+    document.writeln("<br> Quantidade maior que 30% ", lucroMaior30);
+    document.writeln("<br> Quantidade entre 10% e 30% ", lucroEntre1030);
+ //]]>
+ </script>
+</body>
+</html>

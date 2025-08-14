@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aula 2 JavaScript</title>
+</head>
+<body >
+ <script type="text/javascript">
+    //<![CDATA[
+        var A = Array(8);
+        var B = Array(8);
+        var C = Array(8);
+
+        for (i = 0;i<8;i++){
+            A[i] = parseInt(prompt("Digite um numero"));
+            B[i] = parseInt(prompt("Digite um numero"));
+            C[i] = A[i] - B[i];
+        }
+
+        document.writeln("Valor da subtração na posição 7 = ", C[7]);
+    //]]>
+ </script>
+</body>
+</html>

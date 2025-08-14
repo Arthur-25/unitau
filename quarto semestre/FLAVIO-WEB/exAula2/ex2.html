@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aula 2 JavaScript</title>
+</head>
+<body >
+ <script type="text/javascript">
+    //<![CDATA[
+        var salario, contIsentos, contDescontos20, resposta;
+        resposta = true;
+        contIsentos = contDescontos20 = 0;
+
+        while (resposta == true){
+            salario = parseFloat(prompt("Digite seu salario"));
+            if (salario <= 600){
+                contIsentos++;
+                document.writeln("<br>Isento de INSS");
+            }
+
+            if (salario>600 && salario<=1200){
+                contDescontos20++;
+                document.writeln("<br> Valor do desconto INSS = ", salario*0.2);
+            }
+
+            if (salario>1200 && salario<=2000){
+                contDescontos20++;
+                document.writeln("<br> Valor do desconto INSS = ", salario*0.25);
+            }
+
+            if (salario>200) document.writeln("<br> Valor do desconto INSS = ", salario*0.3);
+
+            resposta = confirm("Deseja continuar cadastrando?");
+        }
+        
+        document.writeln("<br> total de isentos: ", contIsentos);
+        document.writeln("<br> total de descontos 20%: ", contDescontos20);
+    //]]>
+ </script>
+</body>
+</html>

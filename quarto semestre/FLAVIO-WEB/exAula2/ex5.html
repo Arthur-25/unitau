@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aula 2 JavaScript</title>
+</head>
+<body >
+ <script type="text/javascript">
+    //<![CDATA[
+        var A = Array(15);
+        var B = Array(15);
+        var C = Array(15);
+        
+        for (i = 0;i<15;i++){
+            A[i] = parseInt(prompt("Digite um numero"));
+            B[i] = parseInt(prompt("Digite um numero"));
+            C[i] = parseInt(prompt("Digite um numero"));
+        }
+        var D = A[5] * B[5] * C[5];
+        document.writeln("conta da multiplicação: " + A[5] + " x " + B[5] + " x " + C[5] + " = " + D );
+        
+    //]]>
+ </script>
+</body>
+</html>

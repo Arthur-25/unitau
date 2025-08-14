@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aula 2 JavaScript</title>
+</head>
+<body >
+ <script type="text/javascript">
+    //<![CDATA[
+        var A = Array(10);
+        var B = Array(10);
+        var C = Array(10);
+        var D = Array(10);
+        var E = Array(10);
+
+        for (i = 0;i<10;i++){
+            A[i] = parseInt(prompt("Digite um numero"));
+            B[i] = parseInt(prompt("Digite um numero"));
+            C[i] = parseInt(prompt("Digite um numero"));
+            D[i] = parseInt(prompt("Digite um numero"));
+        }
+
+        for (i = 0;i<10;i++){
+            E[i] = A[i] + B[i] + C[i] + D[i];
+        }
+
+        for (i = 0;i<10;i++){
+            document.writeln("<br> posição " + i + " tem valor = " + E[i])
+        }
+    //]]>
+ </script>
+</body>
+</html>
