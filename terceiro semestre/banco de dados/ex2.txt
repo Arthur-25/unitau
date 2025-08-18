@@ -1,0 +1,6 @@
+create table funcao(
+funcao integer not null primary key,
+descricao char(10) not null
+);
+
+

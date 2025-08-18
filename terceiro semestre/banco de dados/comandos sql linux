@@ -1,0 +1,12 @@
+psql -U aluno -h 127.0.0.1 -p 5432 aluno
+psql -U aluno -h 127.0.0.1 aluno
+psql
+Todos os comandos acima fazem a mesma coisa no pc da unitau
+select * from aluno;
+\q para sair do psql
+\d para mostrar tabela
+\du mostra usuarios do banco
+\d <nome da tabela> mostra a estrutura de uma tabela
+ctrl + L limpa a tela
+CREATE TABLE contato ( nome VARCHAR(50) PRIMARY KEY, telefone VARCHAR(15), email VARCHAR(50) );
+

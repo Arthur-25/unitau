@@ -1,0 +1,27 @@
+create table diretoria (
+codigo CHAR(3) not null primary key,
+descricao char(10) not null
+);
+
+create table secao(
+codigo char(3) not null primary key,
+descricao char(10) not null,
+diretoria char(3) not null references diretoria,
+foreign key (diretoria)
+references diretoria(codigo)
+);
+
+insert into diretoria values('123','diretoria1');
+insert into diretoria values('321','diretoria2');
+insert into diretoria values('432','diretoria3');
+insert into diretoria values('234','diretoria4');
+insert into diretoria values('987','diretoria5');
+
+insert into secao values('1','secao1','987');
+insert into secao values('2','secao2','234');
+insert into secao values('3','secao3','123');
+insert into secao values('4','secao4','321');
+insert into secao values('5','secao5','432');
+
+SELECT secao.codigo, secao.descricao, secao.diretoria FROM secao
+INNER JOIN diretoria ON secao.diretoria=diretoria.codigo;
