@@ -1,0 +1,38 @@
+import java.util.Scanner;
+import java.util.Locale;
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+        float [][] M = new float[12][12];
+        char O = sc.next().charAt(0);
+        for (int i = 0;i<M.length;i++){
+            for (int j = 0;j<M[i].length;j++){
+                M[i][j] = sc.nextFloat();
+            }
+        }//fim do for lendo valores
+        float soma = 0;
+        if (O == 'S'){
+            //colunas
+            for (int i = 0;i<11;i++){
+                //linhas
+                for (int j = 1;j<12-i;j++){
+                    soma += M[j][i];
+                }
+            }
+        }
+        if (O == 'M'){
+            //colunas
+            for (int i = 0;i<11;i++){
+                //linhas
+                for (int j = 1;j<12-i;j++){
+                    soma += M[j][i];
+                }
+            }
+            soma = soma/66;
+        }
+        System.out.printf("%.1f%n", soma);
+    }
+}

@@ -1,0 +1,5 @@
+1) Classe: É uma estrutura que define atributos (dados) e métodos (ações) que os objetos criados a partir dela possuirão.
+Classe abstrata: É uma classe que não pode ser instanciada diretamente e que geralmente contém métodos que são declarados entretanto não são implementados.
+objeto: É um elemento computacional que representa, no domínio da solução, alguma entidade (abstrata ou concreta) do domínio de interesse do problema sob análise.
+instanciação: R
+efere-se a uma ocorrência específica de uma classe. Quando um programador cria um objeto a partir de uma classe, ele está, na verdade, criando uma instância dessa classe.

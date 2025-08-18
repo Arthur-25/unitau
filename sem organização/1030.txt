@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        int NC = sc.nextInt();
+
+        for (int i = 0;i<NC;i++){
+            //n = numero de pessoas no circulo
+            //k = tamanho de salto de um homem ao outro
+            int n = sc.nextInt(),k = sc.nextInt();
+            //adiciona valores na lista
+            List<Integer> lista = new ArrayList<>();
+            for (int p = 1;p<=n;p++){
+                lista.add(p);
+            }
+            int contador = 0;
+            //remove as posições na lista
+            while(lista.size()!=1){
+                if ((contador + (k-1))>=lista.size()){
+                    contador = contador - lista.size();
+                }else{
+                    contador += k-1;
+                    lista.remove(contador);
+                }
+            }
+            System.out.printf("Case %d: %d\n", i+1, lista.get(0));
+            lista.clear();
+        }
+    }
+}

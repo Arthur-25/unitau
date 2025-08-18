@@ -1,0 +1,49 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.List;
+public class ex1031 {
+    public static List<Integer> lista = new ArrayList<>();
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        while (N<13 || N >100){
+            N = sc.nextInt();
+        }
+
+        int m = 1;
+        while(m<N){
+            m++;
+            verifica13(m,N);
+            if (lista.get(0) == 13){
+                System.out.println(m + " é o valor");
+                break;
+            }else{
+                System.out.println(m + " Não é o valor");
+                lista.clear();
+            }
+        }
+        System.out.println("m: " + m);
+        System.out.println(lista);
+
+    }
+    public static void verifica13(int k, int n) {
+        //n = numero de pessoas no circulo
+        //k = tamanho de salto de um homem ao outro
+        //adiciona valores na lista
+        for (int p = 1; p <= n; p++) {
+            lista.add(p);
+        }
+        int contador = 0;
+        //remove as posições na lista
+        while (lista.size() != 1) {
+            if ((contador + (k - 1)) >= lista.size()) {
+                contador = contador - lista.size();
+            } else {
+                contador += k - 1;
+                System.out.println(lista);
+                lista.remove(contador);
+            }
+        }
+        System.out.println(lista);
+    }
+}
