@@ -1,3 +1,31 @@
+-- Selecionar todos os dados das tabelas
+SELECT * FROM contato;
+SELECT * FROM curso;
+SELECT * FROM sala;
+SELECT * FROM aluno;
+SELECT * FROM diretoria;
+SELECT * FROM funcao;
+SELECT * FROM secao;
+SELECT * FROM funcionario;
+SELECT * FROM produto;
+SELECT * FROM entrada;
+SELECT * FROM saida;
+SELECT * FROM fabricante;
+SELECT * FROM automovel;
+SELECT * FROM cliente;
+SELECT * FROM revenda;
+SELECT * FROM venda;
+SELECT * FROM banco;
+SELECT * FROM conta;
+SELECT * FROM grupotipo;
+SELECT * FROM grupo;
+SELECT * FROM lancamento;
+SELECT * FROM organizacao;
+SELECT * FROM fase;
+SELECT * FROM plataforma;
+SELECT * FROM projeto;
+SELECT * FROM participante;
+
 DROP TABLE IF EXISTS lancamento;
 DROP TABLE IF EXISTS grupo;
 DROP TABLE IF EXISTS grupotipo;
