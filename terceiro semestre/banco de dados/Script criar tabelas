@@ -1,4 +1,4 @@
-#criar contato
+-- criar contato
 CREATE TABLE contato (
                      nome     VARCHAR(50) PRIMARY KEY,
                      telefone VARCHAR(15),
@@ -9,7 +9,7 @@ INSERT INTO contato (nome, telefone, email) VALUES
 ('Maria Souza', '9876-5432', 'maria.souza@email.com'),
 ('Pedro Oliveira', '1111-2222', 'pedro.oliveira@email.com');
 
-#criar curso, sala e aluno
+-- criar curso, sala e aluno
 CREATE TABLE curso (
                    codigo       CHAR(4)  PRIMARY KEY,
                    nome         CHAR(25) NOT NULL
@@ -53,7 +53,7 @@ INSERT INTO aluno ( nome, rg, curso, serie, turma ) VALUES ( 'Andrea'      , '28
 INSERT INTO aluno ( nome, rg, curso, serie, turma ) VALUES ( 'Carla'       , '23636731', '0002', '2', 'A' );
 INSERT INTO aluno ( nome, rg, curso, serie, turma ) VALUES ( 'Fernanda'    , '29563735', NULL, NULL, NULL );
 
-#criar diretoria, secao, funcao, funcionario
+-- criar diretoria, secao, funcao, funcionario
 CREATE TABLE diretoria (
                        codigo       CHAR(3)  PRIMARY KEY,
                        descricao    CHAR(10) NOT NULL
@@ -126,7 +126,7 @@ INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
 INSERT INTO funcionario ( matricula, nome, nascimento, salario, funcao, secao )
                  VALUES ( '48026', 'Luis'   , '1984-05-18', '1300.00', '2', 'CPG' );
                  
-#criar produto, saida e entrada
+-- criar produto, saida e entrada
 CREATE TABLE produto (
                      codigo     CHAR(2)  PRIMARY KEY,
                      descricao  CHAR(10) NOT NULL
@@ -195,7 +195,7 @@ INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/17', '06', '2'
 INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/25', '06', '4' );
 INSERT INTO saida ( data, produto, quantidade ) VALUES ( '2010/03/28', '06', '2' );
 
-#criar fabricante, automovel, cliente, revenda, venda
+-- criar fabricante, automovel, cliente, revenda, venda
 CREATE TABLE fabricante (
                         codigo   CHAR(2)  PRIMARY KEY,
                         nome     CHAR(10) NOT NULL
@@ -297,7 +297,7 @@ INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('04','01'
 INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('02','01','14','2010/02/19','17500');
 INSERT INTO venda ( cliente, revenda, automovel, data, valor ) VALUES ('01','05','04','2010/03/11','21500');
 
-#criar banco, conta, grupotipo, grupo, lancamento
+-- criar banco, conta, grupotipo, grupo, lancamento
 
 CREATE TABLE banco (
 
@@ -421,7 +421,7 @@ INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '01', '04', '2012/
 INSERT INTO lancamento ( conta, grupo, data, valor ) VALUES ( '01', '05', '2012/04/30',  -700.00 );
 
 
-#criar organizacao
+-- criar organizacao
 
 CREATE TABLE organizacao (
 
@@ -450,7 +450,7 @@ INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Ana'    ,  '6800.00
 INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Silvia' ,  '8900.00', 'Sandra' );
 INSERT INTO organizacao ( nome, vendas, superior ) VALUES ( 'Rodrigo',  '8900.00', NULL );
 
-#criar fase, plataforma, projeto, participante
+-- criar fase, plataforma, projeto, participante
 
 CREATE TABLE fase (
 
