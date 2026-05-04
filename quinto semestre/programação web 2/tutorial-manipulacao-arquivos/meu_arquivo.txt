@@ -1,0 +1,3 @@
+Esta é uma linha de texto que será gravada no arquivo.
+Esta é outra linha de texto.
+PHP é uma linguagem que consegue manipular arquivos.
