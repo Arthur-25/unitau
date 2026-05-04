@@ -1,0 +1,17 @@
+Caros, seguem os exercícios.
+
+
+16) Desenvolver um programa que leia dois valores numéricos e apresentar qual é o maior.
+
+17) Desenvolver um programa que leia um número e mostre uma mensagem indicando se este número é par ou ímpar e se é positivo ou negativo.
+
+18) Desenvolver um programa que leia dois números. Se os números forem iguais imprimir a mensagem: “Números iguais” e encerrar a execução; caso contrário, imprimir o de maior valor, acompanhando pela mensagem “é o maior”.
+
+19) Desenvolver um programa que leia três números. Se o primeiro for positivo, imprimir o seu dobro, caso contrário, imprimir o seu triplo; se o segundo número for maior que 10 e menor que 100, imprimir a mensagem: “Intervalo permitido”; se o terceiro número for menor que o segundo, calcular e imprimir a diferença entre eles (número 3 menos número 2), caso contrário, imprimir o terceiro número adicionado de 1.
+
+20) Desenvolver um programa que efetue o cálculo da média aritmética de 4 notas de entrada. Se a média aritmética for maior ou igual que 6, escreva "Aprovado". Senão, escrever "Reprovado".
+	20.1) Desafio: Se qualquer um dos valores de entrada for menor que zero ou maior que 10, o programa deverá apresentar uma mensagem indicando que a nota é inválida e o programa deverá ser encerrado.
+
+Att.
+
+Prof. Luiz Eduardo

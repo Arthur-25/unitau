@@ -1,0 +1,19 @@
+Caros, seguem os exercícios a serem desenvolvidos.
+
+37) Imprima a somatória parcial de todos os números de 1 até 100.
+
+38) Imprima a multiplicação parcial de todos os números de 255 até 555.
+
+39) Faça um programa que exiba todos os números em um intervalo definido pelo usuário. Se o número inicial for maior que o final, deverá ser exibida uma mensagem (Em um label ou em uma caixa de texto) para o usuário indicando que essa ação é inválida.
+
+40) Imprima a somatória dos pares de todos os números de 1 até 100.
+
+41) Imprima a somatória dos divisíveis por 3 de todos os números de -333 até 333.
+
+42) Imprima a somatória dos ímpares e divisíveis por 5 de todos os números de -200 até 200.
+
+43) Faça um programa que exiba todos os números em um intervalo definido pelo usuário e no final imprima a média aritmética dos números.
+
+44) Faça um programa que exiba todos os números em um intervalo definido pelo usuário e no final imprima a quantidade de números pares e ímpares (Cada quantidade em um label).
+
+45) Faça um programa que exiba os NÚMEROS PRIMOS em um intervalo definido pelo usuário.

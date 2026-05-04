@@ -1,0 +1,21 @@
+Caros, seguem os exercícios a serem desenvolvidos:
+
+27) Imprima todos os números de 1 até 100
+
+28) Exiba todos os números de 255 até 555.
+	
+29) Faça um programa que exiba todos os números, os pares e os ímpares. O valor inicial e final deverão ser definidos pelo usuário.
+
+30) Exibir todos os números de 555 até 255.
+
+31) Exiba todos os números pares dentro da seguinte faixa: 53 até 521.
+
+32) Exiba todos os números ímpares dentro da seguinte faixa: 521 até 53.
+
+33) Exiba todos os números ímpares e divisíveis por 5 dentro da seguinte faixa: 1 até 100.
+
+34) Exiba todos os divisíveis por 7 dentro da seguinte faixa: 100 até 1000;
+
+35) Exiba todos os números pares e divisíveis por 8 dentro da seguinte faixa: 200 até 999.
+
+36) Exiba todos os números impares e divisíveis por 15 dentro da seguinte faixa: 999 até 2000.

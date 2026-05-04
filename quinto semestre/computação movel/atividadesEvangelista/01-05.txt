@@ -1,0 +1,15 @@
+Caros, seguem os exercícios:
+
+01) Desenvolver um programa que efetue a soma de dois números.
+
+02) Desenvolver um programa que efetue o cálculo da área do quadrado.
+
+03) Desenvolver um programa que efetue o cálculo da área do retângulo.
+
+04) Desenvolver um programa que efetue o cálculo da área do triângulo.
+
+05) Desenvolver um programa que solicite um valor numérico e informe o anterior dele.
+
+Att.
+
+Prof. Luiz Eduardo 

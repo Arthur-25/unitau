@@ -1,0 +1,15 @@
+Caros, seguem os exercícios.
+
+11) Desenvolver um programa que leia um número e indique se ele é positivo.
+
+12) Desenvolver um programa que leia um número e indique se ele é negativo
+
+13) Desenvolver um programa que leia um número e indique se ele é zero. 
+
+14) Desenvolver um programa que leia um número e indique se ele é positivo ou negativo.
+
+15) Desenvolver um programa que leia um número e indique se ele é positivo, negativo ou zero.
+
+Att.
+
+Prof. Luiz Eduardo

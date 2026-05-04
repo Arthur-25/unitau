@@ -1,0 +1,15 @@
+Caros, seguem os exercícios:
+
+06) Desenvolver um programa que solicite um valor numérico e informe o posterior dele.
+
+07) Desenvolver um programa que solicite um valor numérico e informe o seu dobro e o seu triplo.
+
+08) Desenvolver um programa que solicite um valor numérico e informe 25%, 50%, 100% e 150% do valor de entrada.
+
+09) Desenvolver um programa que efetue o cálculo da média aritmética de 4 notas de entrada.
+
+10) Desenvolver um programa que efetue o cálculo da média ponderada de 4 notas de entrada. Sendo as nota1, nota2 e nota3 equivalendo a 30% da nota total e a nota4 equivalendo a 70% de peso.
+
+Att.
+
+Prof. Luiz Eduardo 

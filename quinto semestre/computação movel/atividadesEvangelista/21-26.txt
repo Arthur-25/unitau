@@ -1,0 +1,18 @@
+Caros, seguem os exercícios do 21 ao 26.
+
+21) Desenvolver um programa que leia 3 números e indique qual é o maior.
+
+22) Desenvolver um programa que leia 3 números e indique qual é o menor.
+
+23) Desenvolver um programa que leia 3 números e indique qual é o maior, o menor, a somatória entre eles e a média aritmética.
+
+24) Desenvolver um programa que leia 4 números e indique as seguintes informações para cada número: Se ele é zero, positivo ou negativo; e se eles são divisíveis por 4.
+
+25) Desenvolver um programa que solicite 3 valores para o usuário. O primeiro valor vai indicar qual operação matemática será efetuada (0: Soma; 1: Subtração; 2: Multiplicação; 3: Divisão). Os demais valores deverão sofrer a operação selecionada. Se for escolhida uma operação inválida (fora da faixa entre 0 e 3), deverá retornar a mensagem "Operação inválida".
+
+26) Desenvolver um programa que solicite 3 valores para o usuário. O primeiro valor vai indicar qual operação matemática será efetuada (0: Soma; 1: Subtração; 2: Multiplicação: 3: Divisão). Se for escolhida a divisão e o divisor for zero, o programa deverá retornar a mensagem "Não é possível dividir por zero".
+Se for escolhida uma operação inválida (fora da faixa entre 0 e 3), deverá retornar a mensagem "Operação inválida".
+
+Att.
+
+Prof. Luiz Eduardo
