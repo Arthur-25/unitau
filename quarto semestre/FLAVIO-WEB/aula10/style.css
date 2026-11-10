@@ -1,0 +1,180 @@
+/* 1. Reset Básico (Boa prática) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding e borda não aumentem o tamanho total do elemento */
+    font-family: Arial, sans-serif; /* Define uma fonte base */
+}
+
+/* 2. Estilização do HEADER */
+header {
+    background-color: #0077b6; /* Azul primário (cor profissional) */
+    color: white; /* Cor do texto no header */
+    padding: 20px; /* Espaçamento interno */
+    
+    /* Configuração Flexbox para alinhar logo e menu lado a lado [cite: 57] */
+    display: flex;
+    justify-content: space-between; /* Espaço entre o logo (h1) e o menu (nav) */
+    align-items: center; /* Alinha verticalmente no centro */
+}
+
+/* 3. Estilização do Logotipo/Título */
+header h1 {
+    font-size: 1.5rem; /* Tamanho da fonte do logo */
+    margin: 0;
+}
+
+/* 4. Estilização do Menu de Navegação */
+.main-nav ul {
+    list-style: none; /* Remove os pontos da lista */
+    display: flex; /* Transforma a lista em linha */
+}
+
+.main-nav ul li {
+    margin-left: 20px; /* Espaçamento entre os itens do menu */
+}
+
+.main-nav ul li a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s; /* Efeito suave ao passar o mouse [cite: 67] */
+}
+
+/* Efeito ao passar o mouse */
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2); /* Fundo levemente branco */
+    border-radius: 5px;
+}
+.imagem-destaque {
+    /* Define a largura máxima como 100% da sua área pai */
+    /* Isso garante que a imagem NUNCA estoure a tela em dispositivos móveis (Responsividade!) */
+    max-width: 100%; 
+    
+    /* Define uma altura automática para manter a proporção (não distorcer a imagem) */
+    height: 600px; 
+    
+    /* Define uma largura ideal para a imagem (exemplo: 600px) */
+    width: 800px; 
+    
+    /* Adiciona um espaçamento abaixo, se necessário */
+    margin-bottom: 20px; 
+    
+    /* Estilização extra (opcional) */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Exemplo de Media Query para telas pequenas */
+@media (max-width: 600px) {
+    .imagem-destaque {
+        /* Garante que em telas muito pequenas a imagem ocupe o máximo */
+        width: 100%;
+    }
+}
+
+.classe-div {
+    font-size: large;
+    font-family: sans-serif;
+}
+.btn-cta {
+    /* Aparência de botão */
+    display: inline-block;
+    padding: 15px 30px;
+    
+    /* Cores */
+    background-color: #00b4d8; /* Azul vibrante */
+    color: white;
+    
+    /* Formato */
+    border-radius: 5px;
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: bold;
+    text-transform: uppercase;
+    
+    /* Efeito de transição */
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.btn-cta:hover {
+    background-color: #0077b6; /* Escurece um pouco */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/* Estilo geral da seção */
+#contato {
+    padding: 80px 20px;
+    background-color: white; /* Volta ao fundo branco */
+    text-align: center;
+}
+
+#contato h2 {
+    color: #0077b6;
+    margin-bottom: 40px;
+}
+
+/* Container que usa Grid para a estrutura de 2 colunas */
+.contato-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas de tamanho igual */
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Estilo do Formulário */
+.bloco-formulario {
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block; /* Garante que o label fique em cima do campo */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Crucial para o padding não quebrar a largura de 100% */
+}
+
+/* Estilo das Informações de Contato */
+.bloco-info {
+    padding: 30px;
+    background-color: #f0f8ff; /* Fundo levemente azul para diferenciar */
+    border-radius: 8px;
+}
+
+.bloco-info h3 {
+    color: #0077b6;
+    margin-bottom: 25px;
+}
+
+.info-item h4 {
+    color: #00b4d8;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* Responsividade (Empilha as colunas em telas pequenas) */
+@media (max-width: 768px) {
+    .contato-grid {
+        grid-template-columns: 1fr; /* Apenas uma coluna */
+    }
+}

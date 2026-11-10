@@ -1,0 +1,12 @@
+cd C:\Users\arthur\IdeaProjects\projetoArvores\src
+
+compilando tudo
+javac -d . binaria/*.java
+javac -d . AVL/*.java
+javac -d . red_black/*.java
+
+java binaria.main1
+
+java AVL.main1
+
+java red_black.main1

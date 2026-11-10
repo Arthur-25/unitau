@@ -1,0 +1,67 @@
+Arvore binaria:
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java binaria.main1
+Tempo do arquivo na arvore binaria de busca teste01.txt = 368 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java binaria.main2
+Tempo do arquivo na arvore binaria de busca teste02.txt = 370 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java binaria.main3
+Tempo do arquivo na arvore binaria de busca teste03.txt = 382 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java binaria.main4
+Tempo do arquivo na arvore binaria de busca teste04.txt = 375 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java binaria.main5
+Tempo do arquivo na arvore binaria de busca teste05.txt = 361 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java binaria.main6
+Tempo do arquivo na arvore binaria de busca teste06.txt = 1278729 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java binaria.main7
+Tempo do arquivo na arvore binaria de busca teste07.txt = 1329732 ms
+
+AVL:
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java AVL.main1
+Tempo do arquivo teste01.txt na AVL = 544 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java AVL.main2
+Tempo do arquivo teste02.txt na AVL = 521 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java AVL.main3
+Tempo do arquivo teste03.txt na AVL = 516 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java AVL.main4
+Tempo do arquivo teste04.txt na AVL = 511 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java AVL.main5
+Tempo do arquivo teste05.txt na AVL = 540 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java AVL.main6
+Tempo do arquivo teste06.txt na AVL = 121 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java AVL.main7
+Tempo do arquivo teste07.txt na AVL = 121 ms
+
+Red-Black
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java red_black.main1
+Tempo do arquivo teste01.txt na Red-Black (TreeMap) = 604 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java red_black.main2
+Tempo do arquivo teste02.txt na Red-Black (TreeMap) = 608 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java red_black.main3
+Tempo do arquivo teste03.txt na Red-Black (TreeMap) = 607 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java red_black.main4
+Tempo do arquivo teste04.txt na Red-Black (TreeMap) = 616 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java red_black.main5
+Tempo do arquivo teste05.txt na Red-Black (TreeMap) = 609 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java red_black.main6
+Tempo do arquivo teste06.txt na Red-Black (TreeMap) = 141 ms
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java red_black.main7
+Tempo do arquivo teste07.txt na Red-Black (TreeMap) = 141 ms

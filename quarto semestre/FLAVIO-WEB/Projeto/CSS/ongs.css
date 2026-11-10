@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header{
+    background-color: #00155a;
+    height: 200px;
+}
+
+header p{
+    text-align: center;
+    color: white;
+    font-size: 33px;
+    flex: 1;
+    display: flex;
+    justify-content: center; /* centraliza na horizontal */
+    align-items: center;     /* centraliza na vertical */
+    padding: 20px;
+}
+
+.inicio{
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF; 
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0.8,0.8,0.8,0.9);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.inicio:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.1);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* centraliza na horizontal */
+    align-items: center;     /* centraliza na vertical */
+    padding: 20px;
+}
+
+.div-form{
+    width: 50%;
+    height: 500px;
+    margin: 0 auto;
+    background-color: #455bd8;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;      /* organiza em coluna */
+    justify-content: flex-start; /* começa de cima */
+    align-items: center;         /* centraliza na horizontal */
+    padding: 40px 20px;          /* espaçamento interno */
+    box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.5);
+}   
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+    width: 350px;   /* largura maior */
+    height: 35px;   /* altura maior */
+    font-size: 16px; /* fonte maior dentro do campo */
+    padding: 5px;    /* espaço interno */
+    border-radius: 6px; /* bordas arredondadas */
+    border: 1px solid #ccc;
+}
+
+.form-class{
+    padding-top: 15px;
+}
+
+label{
+    font-size: 20px;
+    color: white;
+}
+
+#nome{
+    width: 200px;
+    height: 20px;
+}
+
+.submit{
+    border: 2px solid #ffffff; /* Borda azul */
+    padding: 8px;
+    font-size: 20px;
+    width: 150px; 
+    background-color: #007BFF;
+    color: white;
+
+}
+
+.div-botao{
+    display: flex;
+    gap: 30px;
+}
+
+footer {
+    background-color: #00155a;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 0.9em;
+}

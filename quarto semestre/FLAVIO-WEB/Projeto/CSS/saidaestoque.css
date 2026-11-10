@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #00155a;
+    height: 200px;
+}
+
+header p {
+    text-align: center;
+    color: white;
+    font-size: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.inicio {
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF;
+    padding: 10px 20px;
+    border-radius: 8px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-weight: bold;
+    transition: 0.2s;
+    box-shadow: 0 3px 6px rgba(0.8,0.8,0.8,0.9);
+}
+
+.inicio:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.1);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px;
+}
+
+.div-form {
+    width: 80%;
+    padding: 40px;
+    background-color: #d3d7e0;
+    border-radius: 30px;
+    box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.3);
+}
+
+.form-class {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.linha {
+    display: flex;
+    align-items: center;
+}
+
+.linha label {
+    width: 200px;
+    font-size: 18px;
+}
+
+.linha input {
+    width: 70%;
+    height: 35px;
+    border-radius: 6px;
+    border: 1px solid #999;
+    padding-left: 8px;
+}
+
+.submit {
+    border: 2px solid #ffffff;
+    padding: 8px;
+    font-size: 18px;
+    width: 150px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.submit:hover {
+    transform: scale(1.05);
+}
+
+.inserir-btn {
+    margin-top: 10px;
+    margin-left: 200px;
+}
+
+.tabela {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.tabela th, .tabela td {
+    border: 1px solid #999;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.tabela th {
+    background-color: #e8e8e8;
+}
+
+.div-botao {
+    display: flex;
+    gap: 40px;
+    margin-top: 25px;
+}
+
+footer {
+    background-color: #00155a;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}

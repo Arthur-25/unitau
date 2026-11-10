@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Operações com ITENS</title>
+    <link rel="stylesheet" href="../CSS/itens.css" />
+</head>
+<body>
+
+<header>
+    <p>Operações com ITENS</p>
+    <a class="inicio" href="index.html">Início</a>
+</header>
+
+<main>
+    <div class="div-form">
+
+        <form class="form-class" method="post">
+
+            <label><strong>nome:</strong></label><br>
+            <input type="text" name="nome"><br><br>
+
+            <label><strong>descrição:</strong></label><br>
+            <input type="text" name="descricao"><br><br>
+
+            <label><strong>categoria_id:</strong></label><br>
+            <input type="text" name="categoria_id"><br><br>
+
+            <label><strong>quantidade:</strong></label><br>
+            <input type="text" name="quantidade"><br><br>
+
+            <label><strong>unidade:</strong></label><br>
+            <input type="text" name="unidade"><br><br>
+
+            <input type="submit" value="Inserir" class="submit">
+        </form>
+
+        <br><br><br>
+
+        <!-- Tabela -->
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>item_id</th>
+                    <th>nome</th>
+                    <th>descrição</th>
+                    <th>categoria_id</th>
+                    <th>quantidade</th>
+                    <th>unidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="6" style="text-align:center;">(dados)</td></tr>
+            </tbody>
+        </table>
+
+        <br><br>
+
+        <div class="div-botao">
+            <input type="submit" value="Atualizar" class="submit">
+            <input type="submit" value="Excluir" class="submit">
+            <input type="submit" value="Editar" class="submit">
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    &copy; 2025 Meu Site. Todos os direitos reservados.
+</footer>
+
+</body>
+</html>

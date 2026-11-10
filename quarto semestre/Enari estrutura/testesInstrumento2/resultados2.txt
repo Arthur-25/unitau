@@ -1,0 +1,187 @@
+Arvores binarias de busca
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java binaria.main1
+
+--- Resultados para teste01.txt (BST Simples) ---
+Total de Nós Inseridos: 1000000
+Tempo de Inserção: 383 ms
+Nível Médio de Nó: 24,9513
+--------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java binaria.main2
+
+--- Resultados para teste02.txt (BST Simples) ---
+Total de Nós Inseridos: 1000000
+Tempo de Inserção: 369 ms
+Nível Médio de Nó: 24,2936
+--------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java binaria.main3
+
+--- Resultados para teste03.txt (BST Simples) ---
+Total de Nós Inseridos: 1000000
+Tempo de Inserção: 361 ms
+Nível Médio de Nó: 24,4367
+--------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java binaria.main4
+
+--- Resultados para teste04.txt (BST Simples) ---
+Total de Nós Inseridos: 1000000
+Tempo de Inserção: 367 ms
+Nível Médio de Nó: 24,6153
+--------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java binaria.main5
+
+--- Resultados para teste05.txt (BST Simples) ---
+Total de Nós Inseridos: 1000000
+Tempo de Inserção: 368 ms
+Nível Médio de Nó: 24,2090
+--------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java binaria.main6
+StackOverflowError: A árvore se tornou muito desbalanceada, parou na linha: 1000000
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java binaria.main7
+StackOverflowError: A árvore se tornou muito desbalanceada, parou na linha: 1000000
+
+AVL:
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java AVL.main1
+
+--- Resultados para teste01.txt (AVL Tree) ---
+Total de Nós Inseridos: 999902
+Tempo de Inserção: 619 ms
+Nível Médio de Nó: 18,3096
+--------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java AVL.main2
+
+--- Resultados para teste02.txt (AVL Tree) ---
+Total de Nós Inseridos: 999902
+Tempo de Inserção: 609 ms
+Nível Médio de Nó: 18,3800
+--------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java AVL.main3
+
+--- Resultados para teste03.txt (AVL Tree) ---
+Total de Nós Inseridos: 999895
+Tempo de Inserção: 609 ms
+Nível Médio de Nó: 18,3426
+--------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java AVL.main4
+
+--- Resultados para teste04.txt (AVL Tree) ---
+Total de Nós Inseridos: 999889
+Tempo de Inserção: 619 ms
+Nível Médio de Nó: 18,2818
+--------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java AVL.main5
+
+--- Resultados para teste05.txt (AVL Tree) ---
+Total de Nós Inseridos: 999880
+Tempo de Inserção: 586 ms
+Nível Médio de Nó: 18,3115
+--------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java AVL.main6
+
+--- Resultados para teste06.txt (AVL Tree) ---
+Total de Nós Inseridos: 1000000
+Tempo de Inserção: 144 ms
+Nível Médio de Nó: 17,9514
+--------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java AVL.main7
+
+--- Resultados para teste07.txt (AVL Tree) ---
+Total de Nós Inseridos: 1000000
+Tempo de Inserção: 143 ms
+Nível Médio de Nó: 17,9514
+--------------------------------------------------
+
+Red-Black
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java red_black.main1
+
+--- Resultados para teste01.txt (Red-Black Tree / TreeMap) ---
+Total de Nós Inseridos: 999902
+Tempo de Inserção: 657 ms
+Nível Médio de Nó : 19,9314
+(NOTA: O nível médio REAL é inacessível usando TreeMap, mas é garantido ser O(log N)).
+----------------------------------------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java red_black.main2
+
+--- Resultados para teste02.txt (Red-Black Tree / TreeMap) ---
+Total de Nós Inseridos: 999902
+Tempo de Inserção: 601 ms
+Nível Médio de Nó : 19,9314
+(NOTA: O nível médio REAL é inacessível usando TreeMap, mas é garantido ser O(log N)).
+----------------------------------------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java red_black.main3
+
+--- Resultados para teste03.txt (Red-Black Tree / TreeMap) ---
+Total de Nós Inseridos: 999895
+Tempo de Inserção: 602 ms
+Nível Médio de Nó : 19,9314
+(NOTA: O nível médio REAL é inacessível usando TreeMap, mas é garantido ser O(log N)).
+----------------------------------------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java red_black.main4
+
+--- Resultados para teste04.txt (Red-Black Tree / TreeMap) ---
+Total de Nós Inseridos: 999889
+Tempo de Inserção: 605 ms
+Nível Médio de Nó : 19,9314
+(NOTA: O nível médio REAL é inacessível usando TreeMap, mas é garantido ser O(log N)).
+----------------------------------------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java red_black.main5
+
+--- Resultados para teste05.txt (Red-Black Tree / TreeMap) ---
+Total de Nós Inseridos: 999880
+Tempo de Inserção: 596 ms
+Nível Médio de Nó : 19,9314
+(NOTA: O nível médio REAL é inacessível usando TreeMap, mas é garantido ser O(log N)).
+----------------------------------------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java red_black.main6
+
+--- Resultados para teste06.txt (Red-Black Tree / TreeMap) ---
+Total de Nós Inseridos: 1000000
+Tempo de Inserção: 140 ms
+Nível Médio de Nó : 19,9316
+(NOTA: O nível médio REAL é inacessível usando TreeMap, mas é garantido ser O(log N)).
+----------------------------------------------------------------------------------
+
+
+C:\Users\arthur\IdeaProjects\projetoArvores\src>java red_black.main7
+
+--- Resultados para teste07.txt (Red-Black Tree / TreeMap) ---
+Total de Nós Inseridos: 1000000
+Tempo de Inserção: 141 ms
+Nível Médio de Nó : 19,9316
+(NOTA: O nível médio REAL é inacessível usando TreeMap, mas é garantido ser O(log N)).
+----------------------------------------------------------------------------------

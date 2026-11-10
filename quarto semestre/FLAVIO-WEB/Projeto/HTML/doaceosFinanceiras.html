@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Operações com ENTRADA</title>
+    <link rel="stylesheet" href="../CSS/doaceosFinanceiras.css" />
+</head>
+<body>
+
+<header>
+    <p>Operações com ENTRADA</p>
+    <a class="inicio" href="index.html">Início</a>
+</header>
+
+<main>
+    <div class="div-form">
+
+        <form class="form-class" method="post">
+
+            <div class="linha">
+                <label><strong>item_id:</strong></label>
+                <input type="text" name="item_id">
+            </div>
+
+            <div class="linha">
+                <label><strong>quantidade:</strong></label>
+                <input type="text" name="quantidade">
+            </div>
+
+            <div class="linha">
+                <label><strong>doador_id:</strong></label>
+                <input type="text" name="doador_id">
+            </div>
+
+            <div class="linha">
+                <label><strong>ong_id:</strong></label>
+                <input type="text" name="ong_id">
+            </div>
+
+            <div class="linha">
+                <label><strong>observações:</strong></label>
+                <input type="text" name="observacoes">
+            </div>
+
+            <input type="submit" value="Inserir" class="submit inserir-btn">
+
+        </form>
+
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>id_entrada</th>
+                    <th>item_id</th>
+                    <th>quantidade</th>
+                    <th>doador_id</th>
+                    <th>ong_id</th>
+                    <th>observações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="6" style="text-align:center;">(dados)</td></tr>
+            </tbody>
+        </table>
+
+        <div class="div-botao">
+            <button class="submit">Atualizar</button>
+            <button class="submit">Excluir</button>
+            <button class="submit">Editar</button>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    &copy; 2025 Meu Site. Todos os direitos reservados.
+</footer>
+
+</body>
+</html>

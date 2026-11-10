@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <title>EX 1</title>
+</head>
+<body>
+    <script>
+        function calculaSalarioBruto(salarioMinimo, horasTrabalhadas){
+            var valorHora = salarioMinimo/5;
+            return valorHora * horasTrabalhadas;
+        }
+        function adicoes(quantidadeDependentes, quantidadeHorasExtras, valorHoraExtra){
+            var adicao = quantidadeDependentes * 32;
+            adicao += quantidadeHorasExtras * (valorHoraExtra + (valorHoraExtra*0.5));
+            return adicao;
+        }
+        function calcularSalarioLiquido(salarioBruto){
+            var IRFF;
+            if (salarioBruto<200) IRFF = 0;
+            if (salarioBruto>200 && salarioBruto<500) IRFF = 0.1;
+            if (salarioBruto>500) IRFF = 0.2;
+
+            return salarioBruto - (salarioBruto*IRFF)
+        }
+        function calcularSalarioAReceber(salarioLiquido){
+            var gratificacao;
+            if (salarioLiquido<=350) gratificacao = 100;
+            if (salarioLiquido>350) gratificacao = 50;
+
+            return salarioLiquido + gratificacao;
+        }
+
+        var salarioMinimo = parseFloat(prompt("Digite seu salario minimo"));
+        var quantidadeHorasTrabalhadas = parseInt(prompt("Digite quantas horas foram trabalhadas"));
+        var salarioBruto = calculaSalarioBruto(salarioMinimo, quantidadeHorasTrabalhadas);
+        document.writeln("<br>" + salarioBruto);
+
+        var quantidadeDependentes = parseInt(prompt("Digite a quantidade de dependentes"));
+        var quantidadeHorasExtras = parseInt(prompt("Digite a quantidade de horas extras"));
+        salarioBruto += adicoes(quantidadeDependentes, quantidadeHorasExtras, (salarioMinimo/5));
+        document.writeln("<br>" + salarioBruto);
+
+        var salarioLiquido = calcularSalarioLiquido(salarioBruto);
+        document.writeln("<br>" + salarioLiquido);
+
+        var salarioAReceber = calcularSalarioAReceber(salarioLiquido);
+        document.writeln("<br>" + salarioAReceber);
+    </script>
+</body>
+</html>
